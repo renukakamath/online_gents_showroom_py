@@ -1,0 +1,126 @@
+{% include 'sellerheader.html'%}
+  <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="/static/img/carousel-1.jpg" alt="Image" style="height: 800px">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+<center>
+	<h1 style="color: white">Manage Product</h1>
+	<form method="post"  enctype="multipart/form-data">
+		{% if data['produ']%}
+		<table class="table" style="width: 500px;color: white">
+			<tr>
+				<th>Product Category</th>
+				<td><select name="pc" class="form-control" required="" >
+					<option value="{{data['produ'][0]['cat_id']}}">{{data['produ'][0]['cat_name']}}</option>
+					<option >Select</option>
+					{% for row in data['pro']%}
+					<option value="{{row['cat_id']}}">{{row['cat_name']}}</option>
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<th>Product Name</th>
+				<td><input type="text" class="form-control" required=""  name="pname" value="{{data['produ'][0]['product_name']}}"></td>
+			</tr>
+			<tr>
+				<th>Product Image</th>
+				<td><input type="file" class="form-control" required=""  name="imgg" value="{{data['produ'][0]['product_image']}}"></td>
+			</tr>
+			<tr>
+				<th>Amount</th>
+				<td><input type="text" class="form-control" required=""  name="amo" value="{{data['produ'][0]['amount']}}"></td>
+			</tr>
+			<tr>
+				<th>Available Quantity</th>
+				<td><input type="text" class="form-control" required=""  name="aq" value="{{data['produ'][0]['available_quantity']}}"></td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><input type="text" class="form-control" required=""  name="des" value="{{data['produ'][0]['description']}}"></td>
+			</tr>
+
+			<tr>
+				<th>Size</th>
+				<td><input type="text" class="form-control" required=""  name="size" value="{{data['produ'][0]['size']}}"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="update"></td>
+			</tr>
+		</table>
+		{% else %}
+		<table class="table" style="width: 500px;color: white">
+			<tr>
+				<th>Product Category</th>
+				<td><select name="pc" class="form-control" required="" >
+					<option >Select</option>
+					{% for row in data['pro']%}
+					<option value="{{row['cat_id']}}">{{row['cat_name']}}</option>
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<th>Product Name</th>
+				<td><input type="text" class="form-control" required=""  name="pname"></td>
+			</tr>
+			<tr>
+				<th>Product Image</th>
+				<td><input type="file" class="form-control" required=""  name="imgg"></td>
+			</tr>
+			<tr>
+				<th>Amount</th>
+				<td><input type="text" class="form-control" required=""  name="amo"></td>
+			</tr>
+			<tr>
+				<th>Available Quantity</th>
+				<td><input type="text" class="form-control" required=""  name="aq"></td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><input type="text" class="form-control" required=""  name="des"></td>
+			</tr>
+
+			<tr>
+				<th>Size</th>
+				<td><input type="text" class="form-control" required=""  name="size"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="product"></td>
+			</tr>
+		</table>
+		{% endif %}
+	</form>
+</center>
+</div></div></div></div></div></div>
+<center>
+	<h1>View Products</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>Slno</th>
+			<th>Product Category</th>
+			<th>Product Name</th>
+			<th>Product Image</th>
+			<th>Amount</th>
+			<th>Available Quantity</th>
+			<th>Description</th>
+			<th>Size</th>
+		</tr>
+		{% for row in data['pr']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['cat_name']}}</td>
+			<td>{{row['product_name']}}</td>
+			<td><img src="{{row['product_image']}}" width="100" height="100"></td>
+			<td>{{row['amount']}}</td>
+			<td>{{row['available_quantity']}}</td>
+			<td>{{row['description']}}</td>
+			<td>{{row['size']}}</td>
+			<td><a class="btn btn-success" href="?action=delete&pid={{row['product_id']}}">Delete</a></td>
+			<td><a class="btn btn-success" href="?action=update&pid={{row['product_id']}}">Update</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html'%}

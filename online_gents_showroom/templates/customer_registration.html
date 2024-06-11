@@ -1,0 +1,70 @@
+{% include 'publicheader.html'%}
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="/static/img/carousel-1.jpg" alt="Image" style="height: 1000px">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px">
+
+<center>
+	<h1 style="color: white">Customer registration</h1>
+	<form method="post">
+		<table class="table" style="width: 500px;color: white">
+			<tr>
+				<th>First name</th>
+				<td><input type="text" class="form-control" required=""  name="fname"></td>
+			</tr>
+			<tr>
+				<th>last name</th>
+				<td><input type="text" class="form-control" required=""   name="lname"></td>
+			</tr>
+
+			<tr>
+				<th>Dob</th>
+				<td><input type="date" class="form-control" required=""  name="dob"></td>
+			</tr>
+			<tr>
+				<th>Address</th>
+				<td><textarea name="add" required=""  class="form-control"></textarea></td>
+			</tr>
+			<tr>
+				<th>Street</th>
+				<td><input type="text" required=""  class="form-control" name="street"></td>
+			</tr>
+			<tr>
+				<th>City</th>
+				<td><input type="text" required=""  class="form-control" name="city"></td>
+			</tr>
+			<tr>
+				<th>District</th>
+				<td><input type="text" required=""  class="form-control" name="dis"></td>
+			</tr>
+			<tr>
+				<th>Pincode</th>
+				<td><input type="text" required="" pattern="[0-9]{6}"  class="form-control" name="pin"></td>
+			</tr>
+			<tr>
+				<th>Phone</th>
+				<td><input type="text" required="" pattern="[0-9]{10}"  class="form-control" name="Phone"></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><input type="email" required=""  class="form-control" name="email"></td>
+			</tr>
+			<tr>
+				<th>User name</th>
+				<td><input type="text" required=""  class="form-control" name="uname"></td>
+			</tr>
+			<tr>
+				<th>Password</th>
+				<td><input type="password" required=""  class="form-control" name="pwd"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="customer"></td>
+			</tr>
+		</table>
+	</form>
+</center>
+</div></div></div></div></div></div>
+{% include 'footer.html'%}
